@@ -1,3 +1,37 @@
 body {
     margin: 20px;
 }
+
+.my-scatterplot {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+svg.plot-points, svg.plot-regression, .plot-axes, .plot-axes svg, .plot-axes .plot-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.plot-axes .background {
+    fill: #ecf0f1;
+}
+
+.axis path, .axis .tick line {
+    stroke: black;
+    stroke-width: 1;
+    fill: none;
+    shape-rendering: crispEdges;
+}
+
+.axis .tick {
+    font-size: 11px;
+}
+
+.axis .tick line {
+    stroke: white;
+}

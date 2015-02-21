@@ -1,3 +1,35 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h3>Basic scatterplot</h3>
 
-{{outlet}}
+{{my-scatterplot data=someData y="mpg" x="wt" color="cyl"}}
+
+<h3>With another layer as a block param</h3>
+
+{{#my-scatterplot data=someData y="mpg" x="wt" color="cyl" as |plot|}}
+
+{{!-- Easily add a regression line using another layer --}}
+{{plot-regression data=plot.data
+                  x=plot.x
+                  y=plot.y
+                  xScale=plot.xScale
+                  yScale=plot.yScale}}
+
+{{/my-scatterplot}}
+
+<h3>With multiple additional layers, operating on subsets of data</h3>
+
+{{#my-scatterplot data=someData y="mpg" x="wt" color="cyl" as |plot|}}
+
+{{!-- Add a separate regression line for each factor --}}
+{{#each subsets as |subset|}}
+
+{{plot-regression data=subset
+                  x=plot.x
+                  y=plot.y
+                  color=plot.color
+                  colorScale=plot.colorScale
+                  xScale=plot.xScale
+                  yScale=plot.yScale}}
+
+{{/each}}
+
+{{/my-scatterplot}}

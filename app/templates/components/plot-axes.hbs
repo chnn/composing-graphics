@@ -1,0 +1,9 @@
+<svg>
+    <rect class="background" transform="translate({{margin}},0)" width="{{width}}" height="{{height}}" />
+    <g class="x axis" transform="translate({{margin}},{{height}})"></g>
+    <g class="y axis" transform="translate({{margin}},0)"></g>
+</svg>
+
+<div class="plot-area" style="left: {{margin}}px; width: {{width}}px; height: {{height}}px">
+    {{yield}}
+</div>

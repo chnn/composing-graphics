@@ -1,0 +1,13 @@
+{{#plot-axes xScale=xScale yScale=yScale margin=margin width=width height=height}}
+    {{!-- Basic scatterplot geometry --}}
+    {{plot-points data=data
+                  x=x
+                  y=y
+                  color=color
+                  xScale=xScale
+                  yScale=yScale
+                  colorScale=colorScale}}
+
+    {{!-- Allow for additional layers --}}
+    {{yield this}}
+{{/plot-axes}}
