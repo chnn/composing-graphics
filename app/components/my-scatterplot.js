@@ -36,14 +36,14 @@ export default Ember.Component.extend({
     dataKey: 'data',
     dataPropKey: 'x',
     rangeMaxKey: 'width',
-    padding: 0.05
+    padding: 0.1
   }),
 
   yScale: linearScale({
     dataKey: 'data',
     dataPropKey: 'y',
     rangeMaxKey: 'height',
-    padding: 0.05
+    padding: 0.1
   }),
 
   colorScale: category10Scale({

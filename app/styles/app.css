@@ -2,6 +2,13 @@ body {
     margin: 20px;
 }
 
+.toc {
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
 .my-scatterplot {
     width: 600px;
     height: 400px;

@@ -1,0 +1,18 @@
+<h1>With multiple additional layers, operating on subsets of data</h1>
+
+{{#my-scatterplot data=app.carData y="mpg" x="wt" color="cyl" as |plot|}}
+
+{{!-- Add a separate regression line for each factor --}}
+{{#each subsets as |subset|}}
+
+{{plot-regression data=subset
+                  x=plot.x
+                  y=plot.y
+                  color=plot.color
+                  colorScale=plot.colorScale
+                  xScale=plot.xScale
+                  yScale=plot.yScale}}
+
+{{/each}}
+
+{{/my-scatterplot}}

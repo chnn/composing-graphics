@@ -13,6 +13,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "d3": "~3.5.5",
-    "skeleton-css": "2.0.4"
+    "skeleton-css": "2.0.4",
+    "chance": "~0.7.3"
   }
 }

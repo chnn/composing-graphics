@@ -1,0 +1,13 @@
+<h1>With another layer as a block param</h1>
+
+{{#my-scatterplot data=app.carData y="mpg" x="wt" color="cyl" as |plot|}}
+
+{{!-- Easily add a regression line using another layer --}}
+{{plot-regression data=plot.data
+                  x=plot.x
+                  y=plot.y
+                  xScale=plot.xScale
+                  yScale=plot.yScale}}
+
+{{/my-scatterplot}}
+

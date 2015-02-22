@@ -1,35 +1,17 @@
-<h3>Basic scatterplot</h3>
+<div class="container">
+    <div class="three columns toc">
+        <h4>Demo</h4>
 
-{{my-scatterplot data=someData y="mpg" x="wt" color="cyl"}}
+        <ol>
+            <li>{{#link-to 'simple'}}Simple{{/link-to}}</li>
+            <li>{{#link-to 'layer'}}Adding a layer{{/link-to}}</li>
+            <li>{{#link-to 'layers'}}Adding multiple layers{{/link-to}}</li>
+        </ol>
 
-<h3>With another layer as a block param</h3>
+        <button class="button-primary" {{action "chooseN" 15}}>Change things!</button>
+    </div>
 
-{{#my-scatterplot data=someData y="mpg" x="wt" color="cyl" as |plot|}}
-
-{{!-- Easily add a regression line using another layer --}}
-{{plot-regression data=plot.data
-                  x=plot.x
-                  y=plot.y
-                  xScale=plot.xScale
-                  yScale=plot.yScale}}
-
-{{/my-scatterplot}}
-
-<h3>With multiple additional layers, operating on subsets of data</h3>
-
-{{#my-scatterplot data=someData y="mpg" x="wt" color="cyl" as |plot|}}
-
-{{!-- Add a separate regression line for each factor --}}
-{{#each subsets as |subset|}}
-
-{{plot-regression data=subset
-                  x=plot.x
-                  y=plot.y
-                  color=plot.color
-                  colorScale=plot.colorScale
-                  xScale=plot.xScale
-                  yScale=plot.yScale}}
-
-{{/each}}
-
-{{/my-scatterplot}}
+    <div class="nine columns">
+        {{outlet}}
+    </div>
+</div>
