@@ -1,6 +1,13 @@
 /* global d3 */
 import Ember from 'ember';
 
+/**
+  Provides a plottable area wrapped in x and y axes. Requires the `xScale`, 
+  `yScale`, `width`, `height`, and `margin` properties.
+
+  @class PlotAxes
+  @extends Ember.Component
+*/
 export default Ember.Component.extend({
   classNames: ['plot-axes'],
 
@@ -14,6 +21,14 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     this.renderAxes();
   },
+
+  // Using an imperative form of rendering the template here in order to control 
+  // transitions easily. Scheduling the render function with `Ember.run.once` 
+  // allows all dependent properties to finish synchronizing before the render 
+  // function accesses them.
+  axesChanged: Ember.observer('yScale', 'xScale', function() {
+    Ember.run.once(this, 'renderAxes');
+  }),
 
   renderAxes: function() {
     if (!this.$()) {
@@ -38,9 +53,5 @@ export default Ember.Component.extend({
     del.select('.y.axis')
       .transition()
       .call(yAxis);
-  },
-
-  axesChanged: Ember.observer('yScale', 'xScale', function() {
-    Ember.run.once(this, 'renderAxes');
-  })
+  }
 });

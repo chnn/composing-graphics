@@ -5,7 +5,7 @@ import {
 } from '../utils/plot-macros';
 
 /**
-  @class MyScatterploComponent
+  @class MyScatterplotComponent
   @extends Ember.Component
 */
 export default Ember.Component.extend({
@@ -21,6 +21,12 @@ export default Ember.Component.extend({
   width: 100,
   margin: 25,
 
+  xScale: linearScale('data', 'x', 'width', 0.1),
+
+  yScale: linearScale('data', 'y', 'height', 0.1),
+
+  colorScale: category10Scale('data', 'color'),
+
   didInsertElement: function() {
     // After inserting the element, set it's width and height from what's 
     // currently in the DOM. Allows accessing the dimensions of the element in 
@@ -32,22 +38,4 @@ export default Ember.Component.extend({
     });
   },
 
-  xScale: linearScale({
-    dataKey: 'data',
-    dataPropKey: 'x',
-    rangeMaxKey: 'width',
-    padding: 0.1
-  }),
-
-  yScale: linearScale({
-    dataKey: 'data',
-    dataPropKey: 'y',
-    rangeMaxKey: 'height',
-    padding: 0.1
-  }),
-
-  colorScale: category10Scale({
-    dataKey: 'data',
-    dataPropKey: 'color'
-  }),
 });
