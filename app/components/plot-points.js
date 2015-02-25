@@ -15,7 +15,7 @@ var get = Ember.get;
 */
 export default Ember.Component.extend({
   tagName: 'svg',
-  classNames: ['plot-points'],
+  classNames: ['plot', 'plot-points'],
 
   // Required props
   data: null,

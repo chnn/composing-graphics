@@ -3,11 +3,25 @@ body {
 }
 
 .toc {
-    border: 1px solid rgb(231, 231, 231);
-    border-radius: 5px;
     padding: 20px;
     margin-top: 10px;
 }
+
+.button-primary:hover {
+    background-color: #2980b9;
+}
+
+.toc a {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.toc a.active {
+    background-color: rgb(240, 240, 240);
+}
+
+
+/* Styles relevant to plot components */
 
 .my-scatterplot {
     width: 600px;
@@ -16,7 +30,7 @@ body {
     margin-bottom: 20px;
 }
 
-svg.plot-points, svg.plot-regression, .plot-axes, .plot-axes svg, .plot-axes .plot-area {
+.plot, .plot svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,17 +42,19 @@ svg.plot-points, svg.plot-regression, .plot-axes, .plot-axes svg, .plot-axes .pl
     fill: #ecf0f1;
 }
 
-.axis path, .axis .tick line {
-    stroke: black;
-    stroke-width: 1;
-    fill: none;
+.plot-axes .axis path {
+    stroke: rgb(220, 220, 220);
     shape-rendering: crispEdges;
 }
 
-.axis .tick {
+.plot-axes .axis .tick {
     font-size: 11px;
 }
 
-.axis .tick line {
+.plot-axes .axis .tick line {
     stroke: white;
+}
+
+.plot-axes .plot-area {
+    position: relative;
 }

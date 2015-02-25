@@ -5,26 +5,29 @@ import {
 } from '../utils/plot-macros';
 
 /**
+  A simple scatterplot component that has axes and a layer of points.
+
+  Additional layers can be added as block parameters.
+
   @class MyScatterplotComponent
   @extends Ember.Component
 */
 export default Ember.Component.extend({
   classNames: ['my-scatterplot'],
 
-  // Passed in by parent context
+  // Required properties, must be passed in by parent context
   data: null,
   x: null,
   y: null,
   color: null,
 
+  // Default dimensions, are reset in `didInsertElement`
   height: 200,
   width: 100,
   margin: 25,
 
-  xScale: linearScale('data', 'x', 'width', 0.1),
-
-  yScale: linearScale('data', 'y', 'height', 0.1),
-
+  xScale: linearScale('data', 'x', 0, 'width', 0.05),
+  yScale: linearScale('data', 'y', 'height', 0, 0.05),
   colorScale: category10Scale('data', 'color'),
 
   didInsertElement: function() {
@@ -36,6 +39,5 @@ export default Ember.Component.extend({
       width: this.$().width() - margin,
       height: this.$().height() - margin
     });
-  },
-
+  }
 });

@@ -1,7 +1,6 @@
-<h1>With multiple additional layers, operating on subsets of data</h1>
+<h1>Multiple block param layers</h1>
 
 {{#my-scatterplot data=app.carData y="mpg" x="wt" color="cyl" as |plot|}}
-
 {{!-- Add a separate regression line for each factor --}}
 {{#each subsets as |subset|}}
 
@@ -14,5 +13,4 @@
                   yScale=plot.yScale}}
 
 {{/each}}
-
 {{/my-scatterplot}}

@@ -13,7 +13,7 @@ var get = Ember.get;
 */
 export default Ember.Component.extend({
   tagName: 'svg',
-  classNames: ['plot-regression'],
+  classNames: ['plot', 'plot-regression'],
 
   // Require properties
   data: null,
